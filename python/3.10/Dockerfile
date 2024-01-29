@@ -19,6 +19,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
+# Edits made to enable python venv at build by pwnbroker2499 to add DiscordGSM (https://github.com/DiscordGSM/GameServerMonitor) compatibility 
 
 FROM        --platform=$TARGETOS/$TARGETARCH python:3.10-alpine
 
@@ -27,8 +28,10 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         apk add --update --no-cache cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata \
-	&& adduser -D -h /home/container container
+RUN         apk add --update --no-cache cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata bash bin \
+	&& adduser -D -h /home/container container && python -m venv /mnt/server/venv && bash -c 'source venv/bin/activate'
+
+# Added bash, built venv in container home directory, sourced venv
 
 USER        container
 ENV         USER=container HOME=/home/container
