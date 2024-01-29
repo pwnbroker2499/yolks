@@ -29,7 +29,8 @@ LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolk
 LABEL       org.opencontainers.image.licenses=MIT
 
 RUN         apk add --update --no-cache cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata bash bin \
-	&& adduser -D -h /home/container container && python -m venv /home/container/venv && bash -c 'source /home/container/venv/bin/activate'
+	&& adduser -D -h /home/container container && 
+RUN        python -m venv /home/container/venv && bash -c 'source /home/container/venv/bin/activate'
 
 # Added bash, built venv in container home directory, sourced venv
 
