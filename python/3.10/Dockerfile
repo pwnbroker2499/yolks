@@ -41,4 +41,4 @@ WORKDIR     /home/container
 COPY        ./../entrypoint.sh /entrypoint.sh
 CMD         [ "/bin/ash", "/entrypoint.sh" ]
 
-RUN		    su root bash -c 'source /home/container/venv/bin/activate'
+RUN		   bash -c 'source /home/container/venv/bin/activate'
