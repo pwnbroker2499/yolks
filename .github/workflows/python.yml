@@ -40,6 +40,4 @@ jobs:
           platforms: linux/amd64, linux/arm64
           push: true
           tags: |
-            ghcr.io/pwnbroker2499/yolks:python_${{ matrix.tag }}
 
-# Using Pterodactyl's workflow from my github
