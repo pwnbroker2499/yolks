@@ -28,10 +28,9 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/pterodactyl/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN			apk update && apk upgrade && apk add bash
-RUN         apk add --update --no-cache cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata \
+RUN         apk add --update --no-cache bash cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata \
 		    && adduser -D -h /home/container container
-RUN		    python -m venv /home/container/venv && bash -c 'source /home/container/venv/bin/activate'         	
+         	
 
 # Added bash, built venv in container home directory, sourced venv
 
@@ -41,3 +40,5 @@ WORKDIR     /home/container
 
 COPY        ./../entrypoint.sh /entrypoint.sh
 CMD         [ "/bin/ash", "/entrypoint.sh" ]
+
+RUN		    su root bash -c 'source /home/container/venv/bin/activate'
