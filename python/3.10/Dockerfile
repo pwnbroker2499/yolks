@@ -19,7 +19,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Edits made to enable python venv at build by pwnbroker2499 to add DiscordGSM (https://github.com/DiscordGSM/GameServerMonitor) compatibility 
+# Edits made to bash at build by pwnbroker2499 to add DiscordGSM (https://github.com/DiscordGSM/GameServerMonitor) compatibility 
 
 FROM        --platform=$TARGETOS/$TARGETARCH python:3.10-alpine
 
@@ -34,8 +34,6 @@ RUN         apk add --update --no-cache bash cmake make ca-certificates curl ffm
 USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
-
-# Added bash, built venv in container home directory, sourced venv
 
 COPY        ./../entrypoint.sh /entrypoint.sh
 CMD         ["/bin/ash","/entrypoint.sh"]
