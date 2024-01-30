@@ -35,7 +35,7 @@ USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
-RUN 		python3 -m venv /home/container/venv && chown -R container /home/container && bash -c 'source /home/container/venv/bin/activate'
+
 # Added bash, built venv in container home directory, sourced venv
 
 COPY        ./../entrypoint.sh /entrypoint.sh
