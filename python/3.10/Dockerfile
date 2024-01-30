@@ -35,9 +35,10 @@ USER        container
 ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
-RUN 		chown -R container /home/container
+
 # Added bash, built venv in container home directory, sourced venv
 
 COPY        ./../entrypoint.sh /entrypoint.sh
 CMD         ["/bin/ash","/entrypoint.sh"]
 
+RUN 		chown -R container /home/container
