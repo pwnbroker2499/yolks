@@ -31,8 +31,7 @@ LABEL       org.opencontainers.image.licenses=MIT
 RUN         apk add --update --no-cache bash cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata \
 		    && adduser -D -h /home/container container
 
-RUN 		python -m venv /home/container/venv
-         	
+RUN 		python -m venv /home/container/venv && bash -c 'source /home/container/venv/bin/activate'
 
 # Added bash, built venv in container home directory, sourced venv
 
@@ -41,8 +40,5 @@ ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 COPY        ./../entrypoint.sh /entrypoint.sh
-CMD         "/bin/ash"
+CMD         ["/bin/ash","/entrypoint.sh"]
 
-RUN		   bash -c 'source /home/container/venv/bin/activate'
-
-CMD 		"/entrypoint.sh"
