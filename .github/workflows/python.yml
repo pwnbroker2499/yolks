@@ -46,6 +46,6 @@ jobs:
           file: ./python/3.10/Dockerfile
           platforms: linux/amd64, linux/arm64
           push: true
-          tags: venv
+          tags: ghcr.io/pwnbroker2499/venv
           labels: ${{ steps.meta.outputs.labels }}
 # Using Pterodactyl's workflow for my github
