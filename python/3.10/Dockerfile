@@ -45,4 +45,4 @@ CMD         "/bin/ash"
 
 RUN		   bash -c 'source /home/container/venv/bin/activate'
 
-CMD 		"/entrypoint.sh
+CMD 		"/entrypoint.sh"
