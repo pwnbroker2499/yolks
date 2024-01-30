@@ -31,7 +31,7 @@ LABEL       org.opencontainers.image.licenses=MIT
 RUN         apk add --update --no-cache bash cmake make ca-certificates curl ffmpeg g++ gcc git openssl sqlite tar tzdata \
 		    && adduser -D -h /home/container container
 
-RUN 		python -m venv /home/container/venv && bash -c 'source /home/container/venv/bin/activate'
+RUN 		python3 -m venv /home/container/venv && bash -c 'source /home/container/venv/bin/activate'
 
 # Added bash, built venv in container home directory, sourced venv
 
