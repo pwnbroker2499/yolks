@@ -42,7 +42,7 @@ jobs:
       - name: Build and push Docker images
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: .
+          context: ./python/
           push: true
           tags: ghcr.io/v2/pwnbroker2499/yolks:python_3.10
           labels: patch
