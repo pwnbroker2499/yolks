@@ -19,7 +19,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Edits made to bash & set UID at build by pwnbroker2499 to add DiscordGSM (https://github.com/DiscordGSM/GameServerMonitor) compatibility 
+# Edits made to add bash at build by pwnbroker2499 for Python venv sourcing. 
 
 FROM        --platform=$TARGETOS/$TARGETARCH python:3.10-alpine
 
